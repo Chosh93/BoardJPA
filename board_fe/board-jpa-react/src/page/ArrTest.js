@@ -7,15 +7,24 @@ const ArrTest = () => {
         var sumNumbers2 = [2, 3, 4, 6, 9];
         var sumNumbers3 = [1, 3, 5, 7, 9];
         var totalNumbers = [sumNumbers1, sumNumbers2, sumNumbers3];
-        for(var i = 0; i < totalNumbers.length; i++){
+        // for(var i = 0; i < totalNumbers.length; i++){
+        //     var result = 0;
+        //     for(var j = 0; j < totalNumbers[i].length; j++){
+        //         if(totalNumbers[i][j]%2 === 1){
+        //             result += totalNumbers[i][j];
+        //         }
+        //     }
+        //     console.log(result);
+        // }
+        totalNumbers.forEach(arr => {
             var result = 0;
-            for(var j = 0; j < totalNumbers[i].length; j++){
-                if(totalNumbers[i][j]%2 === 1){
-                    result += sumNumbers1[j];
+            arr.forEach((number, index) => {
+                if(number % 2 === 1) {
+                    result += number;
                 }
-            }
+            });
             console.log(result);
-        }
+        });
     }
 
     const dupliDel = () => {
@@ -23,14 +32,25 @@ const ArrTest = () => {
         const mergeArr2 = [['a', 'b'],['b', 'c', 'd']];
         const mergeArr3 = [[], [1, 2, 3, 4]];
         const sumMerge = [mergeArr1, mergeArr2, mergeArr3];
-        for(var i = 0; i < sumMerge.length; i++){
+        // for(var i = 0; i < sumMerge.length; i++){
+        //     var totalMerge = [];
+        //     for(var j = 0; j < sumMerge[i].length-1; j++){
+        //         totalMerge = sumMerge[i][j].concat(sumMerge[i][j+1]);
+        //         totalMerge = [...new Set(totalMerge)];
+        //         console.log(totalMerge);
+        //     }
+        // }
+        sumMerge.forEach(arr => {
             var totalMerge = [];
-            for(var j = 0; j < sumMerge[i].length-1; j++){
-                totalMerge = sumMerge[i][j].concat(sumMerge[i][j+1]);
-                totalMerge = [...new Set(totalMerge)];
-                console.log(totalMerge);
-            }
-        }
+            arr.forEach((subArr, index) => {
+                if(index < arr.length-1){
+                    console.log(arr);
+                    totalMerge = subArr.concat(arr[index+1]);
+                    totalMerge = [...new Set(totalMerge)];
+                    console.log(totalMerge);
+                }
+            });
+        });
     }
     
     const delayfunc = () => {
@@ -52,6 +72,7 @@ const ArrTest = () => {
         console.log([...arr1].reverse());
         console.log([...arr2].reverse());
     }
+
     return (
         <>
         <button onClick={oddNumAdd}>oddNum</button>
